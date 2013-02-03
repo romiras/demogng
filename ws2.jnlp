@@ -1,0 +1,15 @@
+<jnlp codebase="http://www.citybasare.de">
+   <information> 
+     <title>DemoGNG</title> 
+     <vendor>Bernd Fritzke</vendor> 
+     <description>Competitive Learning Models Simulator</description>
+     <icon href="http://docs.oracle.com/javase/tutorial/images/jws-launch-button.png"/> 
+     <offline-allowed/> 
+   </information> 
+<resources>
+  <java version="1.5+"/>
+  <jar href="DemoGNG.jar"/>
+</resources>
+<applet-desc main-class="DemoGNG" name="DemoGNG" width="1000" height="800">
+</applet-desc>  
+</jnlp>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="demogng">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../Program Files (x86)/eclipse"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="demogng.classpath">
+        <pathelement location="bin"/>
+    </path>
+    <target depends="build" name="myjar">
+        <jar destfile="./DemoGNG.jar" basedir="bin">
+        	<manifest>
+                <attribute name="Built-By" value="Bernd Fritzke" />
+                <attribute name="Main-Class" value="./DemoGNG" />
+            </manifest>
+        </jar>
+    </target>
+    <target depends="clean" name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target depends="init" name="build">
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="demogng.classpath"/>
+        </javac>
+    </target>
+    <target name="default">
+        <delete dir="bin"/>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+  </project>
